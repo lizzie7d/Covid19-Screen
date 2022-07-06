@@ -1,0 +1,305 @@
+/* 初始化css */
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+/* li的形态设置 */
+li {
+    list-style: none;
+}
+
+/* 大背景 */
+body {
+    background: url(../img/bg.png) no-repeat top center;
+    /* line-height: 1.15; */
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/* 头部外形设计 */
+header {
+    position: relative;
+    height: .75rem;
+    background: url(../img/head_bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+header h1 {
+    font-size: .35rem;
+    color: #fff;
+    text-align: center;
+    line-height: .6875rem;
+}
+
+header .showTime {
+    position: absolute;
+    right: 0.375rem;
+    top: 0;
+    line-height: .625rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: .175rem;
+}
+
+header .leftpart {
+    position: absolute;
+    left: 0.375rem;
+    top: 0;
+    line-height: .625rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: .175rem;
+}
+
+a {
+    color: red;
+    text-decoration: none
+}
+
+.box {
+    display: flex;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0.125rem 0.125rem 0 0.125rem;
+}
+
+.box .column {
+    flex: 3;
+}
+
+/* 属于box第二个子元素的column为4 也就是地图的部分 */
+.box .column:nth-child(2) {
+    flex: 4;
+    margin: 0 0.125rem 0.1875rem;
+    overflow: hidden;
+}
+
+/* 每一列当中的单独part中的chart大小 */
+.box .part .chart {
+    height: 4.25rem;
+}
+
+.pieChart {
+    height: 5.5rem;
+
+}
+
+.roseChart {
+    height: 5.5rem;
+}
+
+.monthChart {
+    height: 5.5rem;
+    font-size: large;
+}
+
+.worldChart {
+    height: 5.4rem;
+}
+
+.sth {
+    height: 6rem;
+}
+
+/* 给每一个part加上边框 */
+
+
+/* .pie .pieChart::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid #02a6b5;
+    border-top: 2px solid #02a6b5;
+    content: "";
+} */
+
+
+/* .box .part::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #02a6b5;
+    border-top: 2px solid #02a6b5;
+    content: "";
+} */
+
+/* .box .part .part-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+} */
+
+/* .part-footer::before {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid #02a6b5;
+    border-bottom: 2px solid #02a6b5;
+    content: "";
+} */
+
+/* .box .part .part-footer::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #02a6b5;
+    border-bottom: 2px solid #02a6b5;
+    content: "";
+}  */
+
+/* 中间的column 地图部分 */
+.map {
+    position: relative;
+    height: 8rem;
+}
+
+.map .china {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10.125rem;
+}
+
+.map .map2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8.0375rem;
+    height: 8.0375rem;
+    background: url(../img/lbx.png);
+    animation: rotate1 15s linear infinite;
+    opacity: 0.6;
+    background-size: 100% 100%;
+}
+
+.map .map3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7.075rem;
+    height: 7.075rem;
+    background: url(../img/jt.png);
+    animation: rotate2 10s linear infinite;
+    opacity: 0.6;
+    background-size: 100% 100%;
+}
+
+/* 动画特效 */
+@keyframes rotate1 {
+    form {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes rotate2 {
+    form {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+/* 地图上面的 数据部分 */
+.no {
+    background: rgba(101, 132, 226, 0.1);
+    padding: 0.1875rem;
+}
+
+.no .no-hd {
+    position: relative;
+    border: 1px solid rgba(25, 186, 139, 0.17);
+}
+
+/* 加入边框 */
+/* .no .no-hd::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 30px;
+    height: 10px;
+    border-top: 2px solid #02a6b5;
+    border-left: 2px solid #02a6b5;
+}
+
+.no .no-hd::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: "";
+    width: 30px;
+    height: 10px;
+    border-right: 2px solid #02a6b5;
+    border-bottom: 2px solid #02a6b5;
+} */
+
+.no .no-hd ul {
+    display: flex;
+}
+
+.no .no-hd ul li {
+    position: relative;
+    flex: 1;
+    line-height: 1rem;
+    font-size: 0.875rem;
+    color: #ffeb7b;
+    text-align: center;
+}
+
+.no .no-hd ul li::after {
+    content: "";
+    position: absolute;
+    top: 25%;
+    right: 0;
+    height: 50%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.no .no-bd ul {
+    display: flex;
+}
+
+.no .no-bd ul li {
+    flex: 1;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.225rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    padding-top: 0.125rem;
+}
+
+/* 约束屏幕尺寸 */
+/* @media screen and (max-width: 1024px) {
+    html {
+        font-size: 42px !important;
+    }
+} */
+
+/* @media screen and (min-width: 1920px) {
+    html {
+        font-size: 101px !important;
+    }
+} */

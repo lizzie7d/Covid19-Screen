@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery.js"></script>
+    <!-- flexible把屏幕分成24份 -->
+    <script src="js/flexible.js"></script>
+    <script type="text/javascript">
+        // 页面除了charts外的数据渲染部分
+        function getData() {
+            $.ajax({
+                url: "https://api.inews.qq.com/newsqa/v1/query/inner/publish/modules/list?modules=statisGradeCityDetail,diseaseh5Shelf",
+                success: function (data) {
+                    var res = data.data || "";
+                    console.log(res);
+                    $('#detail').html(res.diseaseh5Shelf.lastUpdateTime);
+                    $('#total').html(res.diseaseh5Shelf.chinaAdd.localConfirmH5);
+                    $('#nowTotal').html(res.diseaseh5Shelf.chinaTotal.localConfirm);
+                    $('#outsource').html(res.diseaseh5Shelf.chinaAdd.importedCase);
+
+                }
+            });
+        }
+        getData();
+    </script>
+    <title>Covid 19</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+    <!-- 1、头部开始 -->
+    <header>
+        <h1>Covid 19疫情分布大数据</h1>
+        <div class="leftpart">
+            <span>此大屏的数据源自腾讯新闻新冠疫情实时更新</span>
+            <a href="https://news.qq.com/zt2020/page/feiyan.htm#/" target="_blank">查看更多数据信息</a>
+        </div>
+        <div class="showTime">
+
+            最新更新时间： <span id="detail"></span>
+        </div>
+    </header>
+    <!-- 头部结束 -->
+
+    <!-- 页面部分开始 -->
+    <section class="box">
+        <!-- 三列 3:4:3-->
+        <div class="column">
+            <div class="part pie">
+                <div class="pieChart"></div>
+                <div class="part-footer"></div>
+            </div>
+            <div class="part rose">
+                <div class="roseChart"></div>
+                <div class="part-footer"></div>
+
+            </div>
+        </div>
+        <div class="column">
+            <div class="no">
+                <div class="no-hd">
+                    <ul>
+                        <li id="total"></li>
+                        <li id="nowTotal"></li>
+                        <li id="outsource"></li>
+                    </ul>
+                </div>
+                <div class="no-bd">
+                    <ul>
+                        <li>较昨日新增本土病例</li>
+                        <li>本土现有确诊</li>
+                        <li>较上日境外输入</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map">
+                <div class="map2"></div>
+                <div class="map3"></div>
+                <div class="china"></div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="part line">
+                <div class="worldChart"></div>
+                <div class="part-footer"></div>
+            </div>
+            <div class="part month">
+                <div class="monthChart"></div>
+                <div class="part-footer"></div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <script src="js/echarts.min.js"></script>
+    <!-- 引入china.js -->
+    <script charset="utf-8" src="js/china.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
